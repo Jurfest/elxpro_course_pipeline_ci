@@ -1,4 +1,4 @@
-name: Check Format
+name: Check Security
 
 on:
   push:
@@ -12,8 +12,8 @@ permissions:
   contents: read
 
 jobs:
-  build_and_format:
-    name: Build and Format Check
+  check_security:
+    name: Build and Security Check
     runs-on: ubuntu-22.04 # ubuntu-latest | waiting for PR acceptance
 
     strategy:
@@ -44,8 +44,5 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: mix deps.get
 
-      - name: Check Format
-        run: mix format --check-formatted
-
-      # - name: Run tests
-      #   run: mix test
+      - name: Check Security
+        run: mix sobelow --config
