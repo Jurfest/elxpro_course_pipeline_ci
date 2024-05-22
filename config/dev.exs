@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :pipeline_ci, PipelineCi.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "senhaelixir",
   hostname: "localhost",
   database: "pipeline_ci_dev",
   stacktrace: true,
